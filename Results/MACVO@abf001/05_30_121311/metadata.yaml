@@ -1,0 +1,4 @@
+command: python3 MACVO.py --odom Config/Experiment/MACVO/MACVO_example.yaml --data
+  Config/Sequence/TartanAir_example.yaml
+git_version: d01868a
+time: '05_30_121311'

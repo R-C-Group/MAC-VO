@@ -1,0 +1,73 @@
+Data:
+  args:
+    args:
+      compressed: true
+      gtDepth: false
+      gtFlow: false
+      gtPose: true
+      root: /home/gwp/MAC-VO/Dataset/P001_select
+    name: abf001
+    type: TartanAir_NoIMU
+  end_idx: null
+  start_idx: 0
+Odometry:
+  args:
+    device: cuda
+    edgewidth: 32
+    mapping: false
+    match_cov_default: 0.25
+    num_point: 200
+    profile: false
+  cov:
+    obs:
+      args:
+        device: cuda
+        kernel_size: 31
+        match_cov_default: 0.25
+        min_depth_cov: 0.05
+        min_flow_cov: 0.25
+      type: MatchCovariance
+  frontend:
+    args:
+      device: cuda
+      dtype: fp32
+      enforce_positive_disparity: false
+      max_flow: -1
+      weight: ./Model/MACVO_FrontendCov.pth
+    type: CUDAGraph_FlowFormerCovFrontend
+  keyframe:
+    args: null
+    type: AllKeyframe
+  keypoint:
+    args:
+      device: cuda
+      kernel_size: 7
+      mask_width: 32
+      max_match_cov: 100.0
+    type: CovAwareSelector_NoDepth
+  mappoint:
+    args:
+      device: cuda
+      mask_width: 32
+      max_depth: 5.0
+      max_depth_cov: 0.005
+    type: MappingPointSelector
+  motion:
+    args: null
+    type: StaticMotionModel
+  name: MACVO
+  optimizer:
+    args:
+      constraint: disparity
+      device: cpu
+      parallel: true
+      use_fancy_cov: false
+      vectorize: true
+    type: ReprojectOptimizer
+  outlier:
+    args: null
+    type: CovarianceSanityFilter
+  postprocess:
+    args: null
+    type: MotionInterpolate
+Project: MACVO@abf001

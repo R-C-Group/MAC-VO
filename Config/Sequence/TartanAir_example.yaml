@@ -1,7 +1,7 @@
 type: TartanAir_NoIMU
 name: abf001
 args:
-  root: /data/abf001_select/P001_select
+  root: /home/gwp/MAC-VO/Dataset/P001_select #/data/abf001_select/P001_select
   # Controls optional data sources
   gtDepth: false
   gtFlow: false

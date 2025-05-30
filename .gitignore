@@ -1,7 +1,7 @@
 # .idea/
 # .vscode/
 # .hypothesis/
-# __pycache__/
+__pycache__/
 # exp/
 # Temp/
 # cache/
@@ -17,7 +17,7 @@
 # Draft/
 # Results/
 # Results
-# Model/
+Model/
 # Model
 
 # # Config Local (specific to the platform etc.) are not shared
@@ -46,3 +46,5 @@
 # !**/__init__.pyi
 # !**/__main__.py
 # !**/__main__.pyi
+
+Dataset/
