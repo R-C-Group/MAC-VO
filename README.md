@@ -51,6 +51,8 @@ python3 MACVO.py --odom Config/Experiment/MACVO/MACVO_example.yaml --data Config
 </figcaption>
 </div>
 
+## 实验效果
+
 * 接下来进行可视化以及验证结果
 
 ```bash
@@ -129,4 +131,35 @@ Ref_Compare
 </figcaption>
 </div>
 
-* 而对于mapping module，其不会执行pose的优化
+* 而对于mapping module，其不会执行pose的优化，因此需要先获取tracking后再运行mapping部分
+
+```bash
+python MACVO.py --odom ./Config/Experiment/MACVO/MACVO_mapping.yaml --data ./Config/Sequence/TartanAir_example.yaml
+# --data ./Config/Sequence/TartanAir_abandonfac_001.yaml
+#将其中的gtFlow设置为false，由于作者提供的sample数据并没有光流
+
+#注意，需要对./Config/Experiment/MACVO/MACVO_mapping.yaml中的motion > args 放置pose文件路径
+
+```
+运行完mapping后效果如下：
+
+<div align="center">
+  <img src="./assets/微信截图_20250530135504.png" width="80%" />
+<figcaption>  
+</figcaption>
+</div>
+
+接下来进行可视化。3D可视化采用的为[the Rerun](https://rerun.io/),包括了相机姿态、点云以及轨迹。
+* 采用MobaXterm
+
+```bash
+conda activate macvo
+
+python MACVO.py --odom ./Config/Experiment/MACVO/MACVO_mapping.yaml --data ./Config/Sequence/TartanAir_example.yaml --useRR
+```
+
+<div align="center">
+  <img src="./assets/微信截图_20250530141921.png" width="80%" />
+<figcaption>  
+</figcaption>
+</div>

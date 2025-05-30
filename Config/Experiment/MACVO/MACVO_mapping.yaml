@@ -66,7 +66,7 @@ Odometry:
 
   motion:
     type: StaticMotionModel
-    args:
+    args: ./Results/MACVO@abf001/05_30_121311/poses.npy
 
   outlier:
     type: CovarianceSanityFilter
