@@ -7,4 +7,6 @@
 
 ```bash
 git clone https://github.com/R-C-Group/MAC-VO.git --recursive
+# rm -rf .git
+
 ```
