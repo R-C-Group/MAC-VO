@@ -19,6 +19,6 @@ pillow
 scipy
 flow_vis
 h5py
-xformers==0.0.27.post2
+# xformers==0.0.27.post2
 # tensorrt
 onnx
